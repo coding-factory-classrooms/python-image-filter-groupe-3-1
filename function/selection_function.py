@@ -1,5 +1,4 @@
 import os
-import cv2
 from function.filter_function import filterFunction
 lastImage = []
 
@@ -11,11 +10,10 @@ def selectionFunction(redirectory, filter, userTakeDirectory):
     if userTakeDirectory:
         for resultatFile in os.listdir(redirectory):
             if resultatFile.endswith('.jpg'):
-                print(resultatFile)
                 lastImage.insert(0, resultatFile)
 
     else:
-       lastImage.insert(0, f"image1")
+       lastImage.insert(0, f"image1.jpg")
 
     filterFunction(filter, lastImage, userTakeDirectory, redirectory)
 
