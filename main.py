@@ -1,4 +1,5 @@
+import os
+
 from function.selection_function import selectionFunction
 
-#lastImage = {}
-selectionFunction('imgs', 'grey', True)
+selectionFunction('imgs/', 'blur', True)

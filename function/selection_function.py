@@ -9,9 +9,11 @@ def selectionFunction(redirectory, filter, userTakeDirectory):
         os.mkdir('output')
 
     if userTakeDirectory:
-        for loopNumber in range(0, 4):
-            loopNumber += 1
-            lastImage.insert(loopNumber, f"image{loopNumber}")
+        for resultatFile in os.listdir(redirectory):
+            if resultatFile.endswith('.jpg'):
+                print(resultatFile)
+                lastImage.insert(0, resultatFile)
+
     else:
        lastImage.insert(0, f"image1")
 
