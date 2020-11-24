@@ -13,7 +13,7 @@ def selectionFunction(redirectory, filter, userTakeDirectory):
             loopNumber += 1
             lastImage.insert(loopNumber, f"image{loopNumber}")
     else:
-        lastImage = cv2.imread(redirectory + "/image1.jpg")
+       lastImage.insert(0, f"image1")
 
     filterFunction(filter, lastImage, userTakeDirectory, redirectory)
 
