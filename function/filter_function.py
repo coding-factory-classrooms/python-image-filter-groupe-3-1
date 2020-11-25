@@ -1,6 +1,3 @@
-import os
-import cv2
-import numpy as np
 from function.template_function import templateFunctionMulti, templateFunctionSimple
 def filterFunction(filter, lastImage, userTakeDirectory, redirectory):
     if userTakeDirectory:
