@@ -3,30 +3,26 @@ from function.color_function import colorFunction
 from function.filter_function import filterFunction
 
 lastImage = []
+newImage = []
 
 
-def selectionFunction(redirectory, filter, userTakeDirectory):
+def selectionFunction(redirectory, output, finalFilter, finalParamFilter):
     global lastImage
     if os.path.exists(redirectory):
         redirectoryValide = True
-        if os.path.exists('output'):
-            os.mkdir('output')
     else:
         redirectoryValide = False
 
 
-    if userTakeDirectory and redirectoryValide:
-        for resultatFile in os.listdir(redirectory):
+    if redirectoryValide:
+        for resultatFile in os.listdir(output):
             if resultatFile.endswith('.jpg'):
                 lastImage.insert(0, resultatFile)
-
-    elif redirectoryValide:
-        lastImage.insert(0, f"image1.jpg")
     else:
         print(f"{colorFunction.HEADER}IMAGE FILTER GROUP 3.")
         print(f"{colorFunction.WARNING}Votre redirection est invalide.")
 
-    filterFunction(filter, lastImage, userTakeDirectory, redirectory)
+    filterFunction(lastImage, finalFilter, finalParamFilter, redirectory, output)
 
 def displayAllFilter():
     print(f'{colorFunction.OKBLUE}Voici la liste des filtres :\n')
