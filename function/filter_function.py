@@ -4,6 +4,5 @@ def filterFunction(lastImage, finalFilter, finalParamFilter, redirectory, output
         templateFunctionMulti(lastImage, finalFilter, finalParamFilter, redirectory, output)
     if finalFilter == 'blur':
         templateFunctionMulti(lastImage, finalFilter, finalParamFilter, redirectory, output)
-
     if finalFilter == 'dilate':
         templateFunctionMulti(lastImage, finalFilter, finalParamFilter, redirectory, output)

@@ -9,8 +9,6 @@ def templateFunctionMulti(lastImage, finalFilter, finalParamFilter, redirectory,
     for loopNumber in range(0, len(lastImage)):
         if finalFilter == "grey":
             optionName = cv2.cvtColor(cv2.imread(f"{output}/{lastImage[loopNumber]}"), cv2.COLOR_BGR2GRAY)
-
-
         elif finalFilter == "blur":
             optionName = cv2.blur(cv2.imread(f"{output}/{lastImage[loopNumber]}"), sizeImage)
 

@@ -1,8 +1,11 @@
+import configparser
+
 resultatVar = []
+finalResultatVar = []
 
 
 def readConfigFunction():
-    global resultatVar
+    global filterWanted
     finalVar = open("config.ini","r")
     finalVar = finalVar.read()
     finalVar = finalVar.split("\n")
@@ -10,7 +13,14 @@ def readConfigFunction():
         filterTemp = finalVar[sleepLoop].split("=")
         filterWanted = filterTemp[1]
         resultatVar.insert(0, filterWanted)
-    return resultatVar
 
 def getResultat():
+    print(resultatVar)
     return resultatVar
+
+
+def readConfig():
+    conf = configparser.ConfigParser()
+    conf.read('config2.ini')
+    redirectory = conf['config']['redirectoryInputImage']
+    print(redirectory)

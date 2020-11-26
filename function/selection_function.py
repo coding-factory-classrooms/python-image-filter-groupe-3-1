@@ -9,7 +9,6 @@ def selectionFunction(redirectory, output, finalFilter, finalParamFilter):
     lastImage = []
     if os.path.exists(redirectory):
         redirectoryValide = True
-
     else:
         redirectoryValide = False
 
@@ -24,6 +23,7 @@ def selectionFunction(redirectory, output, finalFilter, finalParamFilter):
         print(f"{colorFunction.WARNING}Votre redirection est invalide.")
 
     filterFunction(lastImage, finalFilter, finalParamFilter, redirectory, output)
+
 
 def displayAllFilter():
     print(f'{colorFunction.OKBLUE}Voici la liste des filtres :\n')
