@@ -5,7 +5,9 @@ import os
 from function.selection_function import selectionFunction, displayAllFilter
 from function.log_function import dump_log
 from function.createimg_function import createImgFunction
+from function.readconfig_function import readConfigFunction
 
+readConfigFunction()
 
 cmdExcute = sys.argv
 for sleepLoop in range(0, len(cmdExcute)):
