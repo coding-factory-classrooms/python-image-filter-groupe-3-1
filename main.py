@@ -32,8 +32,8 @@ for sleepLoop in range(0, len(cmdExcute)):
 
         if sleepLoop + 2 < len(cmdExcute):
             filter2 = cmdExcute[sleepLoop + 2]
-            if not filter == "grey":
-                paramFilter = filter.split(':')
+            if not filter2 == "grey":
+                paramFilter = filter2.split(':')
                 finalFilter = paramFilter[0]
                 finalParamFilter = paramFilter[1]
             else:
@@ -43,8 +43,8 @@ for sleepLoop in range(0, len(cmdExcute)):
 
             if sleepLoop + 3 < len(cmdExcute):
                 filter3 = cmdExcute[sleepLoop + 3]
-                if not filter == "grey":
-                    paramFilter = filter.split(':')
+                if not filter3 == "grey":
+                    paramFilter = filter3.split(':')
                     finalFilter = paramFilter[0]
                     finalParamFilter = paramFilter[1]
                 else:

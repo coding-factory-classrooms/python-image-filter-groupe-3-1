@@ -2,12 +2,11 @@ import os
 from function.color_function import colorFunction
 from function.filter_function import filterFunction
 
-lastImage = []
 newImage = []
 
 
 def selectionFunction(redirectory, output, finalFilter, finalParamFilter):
-    global lastImage
+    lastImage = []
     if os.path.exists(redirectory):
         redirectoryValide = True
     else:
@@ -18,6 +17,7 @@ def selectionFunction(redirectory, output, finalFilter, finalParamFilter):
         for resultatFile in os.listdir(output):
             if resultatFile.endswith('.jpg'):
                 lastImage.insert(0, resultatFile)
+                lastImage=sorted(lastImage)
     else:
         print(f"{colorFunction.HEADER}IMAGE FILTER GROUP 3.")
         print(f"{colorFunction.WARNING}Votre redirection est invalide.")

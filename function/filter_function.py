@@ -1,8 +1,9 @@
 from function.template_function import templateFunctionMulti
 def filterFunction(lastImage, finalFilter, finalParamFilter, redirectory, output):
-    if filter == 'grey':
+    if finalFilter == 'grey':
         templateFunctionMulti(lastImage, finalFilter, finalParamFilter, redirectory, output)
-    if filter == 'blur':
+    if finalFilter == 'blur':
         templateFunctionMulti(lastImage, finalFilter, finalParamFilter, redirectory, output)
-    if filter == 'dilate':
+
+    if finalFilter == 'dilate':
         templateFunctionMulti(lastImage, finalFilter, finalParamFilter, redirectory, output)
