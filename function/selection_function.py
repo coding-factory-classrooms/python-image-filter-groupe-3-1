@@ -1,7 +1,7 @@
 import os
 from function.color_function import colorFunction
 from function.filter_function import filterFunction
-
+from function.createimg_function import createImgFunction
 newImage = []
 
 
@@ -9,6 +9,7 @@ def selectionFunction(redirectory, output, finalFilter, finalParamFilter):
     lastImage = []
     if os.path.exists(redirectory):
         redirectoryValide = True
+
     else:
         redirectoryValide = False
 

@@ -1,9 +1,10 @@
 import sys
+import os
+
 
 from function.selection_function import selectionFunction, displayAllFilter
 from function.log_function import dump_log
 from function.createimg_function import createImgFunction
-createImgFunction()
 
 
 cmdExcute = sys.argv
@@ -15,6 +16,9 @@ for sleepLoop in range(0, len(cmdExcute)):
     elif inputCLI == "-o":
         if sleepLoop + 1 < len(cmdExcute):
             output = cmdExcute[sleepLoop + 1]
+            if not os.path.exists(output):
+                os.mkdir(output)
+            createImgFunction()
         else:
             print('test')
     elif inputCLI == "-f":
