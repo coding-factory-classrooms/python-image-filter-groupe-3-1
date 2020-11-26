@@ -5,10 +5,10 @@ import os
 from function.selection_function import selectionFunction, displayAllFilter
 from function.log_function import dump_log
 from function.createimg_function import createImgFunction
-from function.readconfig_function import readConfigFunction
+from function.readconfig_function import readConfigFunction,getResultat
 
 readConfigFunction()
-
+print(getResultat())
 cmdExcute = sys.argv
 for sleepLoop in range(0, len(cmdExcute)):
     inputCLI = cmdExcute[sleepLoop]
@@ -62,6 +62,10 @@ for sleepLoop in range(0, len(cmdExcute)):
         else:
             print('test')
 
+
+configResult=getResultat()
+config
+selectionFunction(configResult[2],configResult[1],configResult[0])
 
 #dump_log()
 #displayAllFilter()
