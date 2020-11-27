@@ -2,7 +2,7 @@ import os
 import sys
 from function.selection_function import selectionFunction
 from function.createimg_function import createImgFunction
-from function.readconfig_function import getResultat
+from function.readconfig_function import getResultat,checkErrorCli,checkErrorConfig
 
 finalFilter = ""
 finalParamFilter = ""
@@ -12,12 +12,23 @@ def callFunction():
     callCli()
 
 
-def callConfig():
-    print('coucou')
+def callCheckError():
+    cmdExcute = sys.argv
+    saveResultat = getResultat()
+
+    if len(cmdExcute) == 3:
+        checkErrorCli(saveResultat)
+    elif len(saveResultat) == 2:
+        print('test')
+        checkErrorConfig(saveResultat)
+
+
+
 
 
 def callCli():
     cmdExcute = sys.argv
+    callCheckError()
     global finalFilter
     global finalParamFilter
 
@@ -75,6 +86,7 @@ def callCli():
             if not os.path.exists(output):
                 os.mkdir(output)
             createImgFunction()
+
             paramResultatConfig = resultatConfig[0].split(' ')
 
             for loopFilter in range(0, len(paramResultatConfig)):

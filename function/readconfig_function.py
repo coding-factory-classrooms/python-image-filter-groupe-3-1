@@ -14,8 +14,31 @@ def readConfigFunction():
         filterWanted = filterTemp[1]
         resultatVar.insert(0, filterWanted)
 
+def checkErrorConfig(saveResultat):
+    separeFilter = saveResultat[0].split(" ")
+    for loopFilter in range(0, len(separeFilter)):
+        if not separeFilter[loopFilter] == "grey":
+            separeFilterDoubleParam = separeFilter[loopFilter].split(':')
+            finalFilter = separeFilterDoubleParam[0]
+            finalParamFilter = separeFilterDoubleParam[1]
+            print(finalFilter + finalParamFilter)
+        else:
+            finalFilter = "grey"
+            finalParamFilter = 0
+
+def checkErrorCli(saveResultat):
+    separeFilter = saveResultat[0].split(" ")
+    for loopFilter in range(0, len(separeFilter)):
+        if not separeFilter[loopFilter] == "grey":
+            separeFilterDoubleParam = separeFilter[loopFilter].split(':')
+            finalFilter = separeFilterDoubleParam[0]
+            finalParamFilter = separeFilterDoubleParam[1]
+            print(finalFilter + finalParamFilter)
+        else:
+            finalFilter = "grey"
+            finalParamFilter = 0
+
 def getResultat():
-    print(resultatVar)
     return resultatVar
 
 
@@ -23,4 +46,3 @@ def readConfig():
     conf = configparser.ConfigParser()
     conf.read('config2.ini')
     redirectory = conf['config']['redirectoryInputImage']
-    print(redirectory)
