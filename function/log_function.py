@@ -4,7 +4,7 @@ from datetime import datetime
 if not os.path.exists('log'):
     os.mkdir('log')
 
-globalLog = 'log/log_application.log'
+globalLog = 'log/log_applications.log'
 
 
 def logFunction(message):

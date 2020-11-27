@@ -66,3 +66,4 @@ def inputConfig():
             finalFilter = "grey"
             finalParamFilter = 0
         selectionFunction(redirectory, output, finalFilter, finalParamFilter)
+

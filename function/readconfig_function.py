@@ -38,7 +38,7 @@ def checkErrorConfig(saveResultat):
         if 'grey' in separeFilter or \
                 'blur' in paramResultatConfigFinal[0] and paramResultatConfigFinal[1].isdigit() or \
                 'dilate' in paramResultatConfigFinal[0] and paramResultatConfigFinal[1].isdigit():
-            function.cli_function.callCli(saveResultat)
+            function.cli_function.callCli()
         else:
             print("\nVous n'utilisez pas les filtres disponible")
             displayAllFilter()

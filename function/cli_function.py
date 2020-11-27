@@ -3,15 +3,16 @@ import sys
 
 from function.inputcli_function import inputOutput, inputFilter, inputConfig
 from function.selection_function import displayAllFilter
-from function.readconfig_function import getResultat, checkErrorCli, checkErrorConfig
+from function.readconfig_function import getResultat, checkErrorCli, checkErrorConfig, readConfigFunction
 
 finalFilter = ""
 finalParamFilter = ""
 
 def callCheckError():
     cmdExcute = sys.argv
-    saveResultat = getResultat()
     if cmdExcute[1] == '--config':
+        readConfigFunction()
+        saveResultat = getResultat()
         checkErrorConfig(saveResultat)
     elif cmdExcute[1] == '--list-filter':
         displayAllFilter()
@@ -23,6 +24,7 @@ def callCli():
     cmdExcute = sys.argv
     global redirectory
     for sleepLoop in range(0, len(cmdExcute)):
+
         inputCLI = cmdExcute[sleepLoop]
         inputCLIConfig = cmdExcute[1]
         if inputCLI == "-i":
@@ -31,5 +33,5 @@ def callCli():
             inputOutput(cmdExcute, sleepLoop)
         elif inputCLI == "-f":
             inputFilter(cmdExcute, sleepLoop)
-        elif inputCLIConfig == "--config":
+        elif inputCLIConfig == "--config" and sleepLoop < 1:
             inputConfig()
