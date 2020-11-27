@@ -3,8 +3,6 @@ import os
 from function.createimg_function import createImgFunction
 from function.readconfig_function import getResultat
 from function.selection_function import selectionFunction
-global redirectory
-global output
 
 def inputOutput(cmdExcute, sleepLoop):
     if sleepLoop + 1 < len(cmdExcute):
@@ -13,6 +11,8 @@ def inputOutput(cmdExcute, sleepLoop):
             os.mkdir(output)
         createImgFunction()
 def inputFilter(cmdExcute, sleepLoop):
+    redirectory = cmdExcute[2]
+    output = cmdExcute[4]
     if sleepLoop + 1 < len(cmdExcute):
         filter = cmdExcute[sleepLoop + 1]
         if not filter == "grey":
@@ -65,5 +65,4 @@ def inputConfig():
         else:
             finalFilter = "grey"
             finalParamFilter = 0
-        print(redirectory, output, finalFilter, finalParamFilter)
         selectionFunction(redirectory, output, finalFilter, finalParamFilter)

@@ -45,7 +45,27 @@ def checkErrorConfig(saveResultat):
 
 
 def checkErrorCli(saveResultat):
-    print('test')
+    separeFilter = saveResultat[6].split(" ")
+    if not os.path.exists(saveResultat[2]):  # check if input document possible create
+        os.mkdir(saveResultat[2])
+    if not os.path.exists(saveResultat[4]):  # check if output document possible create
+        os.mkdir(saveResultat[4])
+
+    if 'grey' in separeFilter:
+        separeFilter = separeFilter
+    else:
+        paramResultatConfigFinal = separeFilter[0].split(':')
+    try:
+        if 'grey' in separeFilter or \
+                'blur' in paramResultatConfigFinal[0] and paramResultatConfigFinal[1].isdigit() or \
+                'dilate' in paramResultatConfigFinal[0] and paramResultatConfigFinal[1].isdigit():
+            function.cli_function.callCli()
+        else:
+            print("\nVous n'utilisez pas les filtres disponible")
+            displayAllFilter()
+    except IndexError:
+        print("\nVous n'utilisez pas les filtres disponible")
+        displayAllFilter()
 
 
 def getResultat():
