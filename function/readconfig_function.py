@@ -1,5 +1,6 @@
 import configparser
 import os
+import sys
 
 import function.cli_function
 from function.selection_function import displayAllFilter
@@ -10,13 +11,17 @@ finalResultatVar = []
 
 def readConfigFunction():
     global filterWanted
-    finalVar = open("config.ini", "r")
-    finalVar = finalVar.read()
-    finalVar = finalVar.split("\n")
-    for sleepLoop in range(0, 3):
-        filterTemp = finalVar[sleepLoop].split("=")
-        filterWanted = filterTemp[1]
-        resultatVar.insert(0, filterWanted)
+    try:
+        cmdExcute = sys.argv
+        finalVar = open(cmdExcute[2], "r")
+        finalVar = finalVar.read()
+        finalVar = finalVar.split("\n")
+        for sleepLoop in range(0, 3):
+            filterTemp = finalVar[sleepLoop].split("=")
+            filterWanted = filterTemp[1]
+            resultatVar.insert(0, filterWanted)
+    except:
+        print("Votre configuration n'existe pas.")
 
 
 def checkErrorConfig(saveResultat):
