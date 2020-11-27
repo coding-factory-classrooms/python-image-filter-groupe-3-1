@@ -26,7 +26,7 @@ def selectionFunction(redirectory, output, finalFilter, finalParamFilter):
 
 
 def displayAllFilter():
-    print(f'{colorFunction.OKBLUE}Voici la liste des filtres :\n')
+    print(f'{colorFunction.OKBLUE}Voici la liste des filtres :')
     print(f'{colorFunction.FAIL}grey')
-    print(f'{colorFunction.FAIL}grayscale')
-    print(f'{colorFunction.FAIL}dilate')
+    print(f'{colorFunction.FAIL}blur:x')
+    print(f'{colorFunction.FAIL}dilate:x')

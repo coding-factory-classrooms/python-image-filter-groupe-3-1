@@ -2,33 +2,22 @@ import os
 import sys
 from function.selection_function import selectionFunction
 from function.createimg_function import createImgFunction
-from function.readconfig_function import getResultat,checkErrorCli,checkErrorConfig
+from function.readconfig_function import getResultat, checkErrorCli, checkErrorConfig
 
 finalFilter = ""
 finalParamFilter = ""
 
-
-def callFunction():
-    callCli()
-
-
 def callCheckError():
     cmdExcute = sys.argv
     saveResultat = getResultat()
-
-    if len(cmdExcute) == 3:
-        checkErrorCli(saveResultat)
-    elif len(saveResultat) == 2:
-        print('test')
+    if cmdExcute[1] == '--config':
         checkErrorConfig(saveResultat)
+    else:
+        checkErrorCli(cmdExcute)
 
 
-
-
-
-def callCli():
+def callCli(saveResultat):
     cmdExcute = sys.argv
-    callCheckError()
     global finalFilter
     global finalParamFilter
 
@@ -79,15 +68,15 @@ def callCli():
                         finalParamFilter = 0
                     selectionFunction(redirectory, output, finalFilter, finalParamFilter)
         elif inputCLIConfig == "--config":
-            resultatConfig = getResultat()
-            redirectory = resultatConfig[2]
-            output = resultatConfig[1]
+            saveResultat = getResultat()
+            redirectory = saveResultat[2]
+            output = saveResultat[1]
 
             if not os.path.exists(output):
                 os.mkdir(output)
             createImgFunction()
 
-            paramResultatConfig = resultatConfig[0].split(' ')
+            paramResultatConfig = saveResultat[0].split(' ')
 
             for loopFilter in range(0, len(paramResultatConfig)):
                 if not paramResultatConfig[loopFilter] == "grey":
@@ -98,7 +87,5 @@ def callCli():
                 else:
                     finalFilter = "grey"
                     finalParamFilter = 0
+                print(redirectory, output, finalFilter, finalParamFilter)
                 selectionFunction(redirectory, output, finalFilter, finalParamFilter)
-
-
-
